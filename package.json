@@ -1,6 +1,6 @@
 {
   "name": "cargo-route",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The SaaS application for Cargo Route. Application that simulation the logistic market and manages their fictional logistic company. 🚛",
   "main": "./dist/index.js",
   "scripts": {
