@@ -9,7 +9,7 @@ on:
 
 jobs:
     release-please:
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
@@ -27,7 +27,7 @@ jobs:
               run: npx release-please release-pr --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
 
     create-release:
-        if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+        if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.user.login != 'github-actions[bot]'
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
