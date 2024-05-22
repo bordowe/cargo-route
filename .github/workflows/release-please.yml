@@ -21,4 +21,4 @@ jobs:
               run: npm install release-please
 
             - name: Release Please
-              run: npx release-please release-pr --token=${{ secrets.GITHUB_TOKEN }} --release-type=node
+              run: npx release-please release-pr --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node
