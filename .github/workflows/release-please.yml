@@ -9,7 +9,7 @@ on:
 
 jobs:
     release-please:
-        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        if: github.event_name == 'push'
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
@@ -27,7 +27,7 @@ jobs:
               run: npx release-please release-pr --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
 
     create-release:
-        if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.user.login != 'github-actions[bot]'
+        if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
@@ -43,3 +43,18 @@ jobs:
 
             - name: Create GitHub Release
               run: npx release-please github-release --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
+
+            - name: Add label to release PR
+              if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+              run: |
+                  gh pr edit ${{ github.event.pull_request.number }} --add-label "release"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    prevent-loop:
+        if: github.event.pull_request.head.repo.full_name == github.repository && contains(github.event.pull_request.labels.*.name, 'release')
+        runs-on: ubuntu-latest
+        steps:
+            - name: Exit to prevent loop
+              run: echo "Exiting to prevent loop"
+              continue-on-error: true
