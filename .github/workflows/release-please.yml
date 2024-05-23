@@ -1,24 +1,24 @@
-name: Generate Changelog
-
 on:
     push:
         branches:
             - main
 
+permissions:
+    contents: write
+    pull-requests: write
+
+name: release-please
+
 jobs:
-    generate-changelog:
+    release-please:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v2
+            - uses: googleapis/release-please-action@v4
               with:
-                  node-version: "16"
-
-            - name: Install release-please
-              run: npm install release-please@latest
-
-            - name: Generate changelog
-              run: npx release-please github-release --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
+                  # this assumes that you have created a personal access token
+                  # (PAT) and configured it as a GitHub action secret named
+                  # `MY_RELEASE_PLEASE_TOKEN` (this secret name is not important).
+                  token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+                  # this is a built-in strategy in release-please, see "Action Inputs"
+                  # for more options
+                  release-type: simple
