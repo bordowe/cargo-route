@@ -21,7 +21,7 @@ jobs:
               run: npm install release-please
 
             - name: Generate changelog
-              run: npx release-please changelog --token=${{ secrets.GITHUB_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
+              run: npx release-please changelog --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
 
             - name: Commit and push updated CHANGELOG.md
               run: |
@@ -31,4 +31,4 @@ jobs:
                   git commit -m "Update changelog"
                   git push origin main
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
