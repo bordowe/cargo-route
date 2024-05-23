@@ -18,10 +18,10 @@ jobs:
                   node-version: "16"
 
             - name: Install release-please
-              run: npm install release-please
+              run: npm install release-please@latest
 
             - name: Generate changelog
-              run: npx release-please changelog --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
+              run: npx release-please --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --repo-url="${{ github.repository }}" changelog
 
             - name: Commit and push updated CHANGELOG.md
               run: |
