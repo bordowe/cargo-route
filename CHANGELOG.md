@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/maroon-studio/cargo-route/compare/v1.0.11...v1.1.0) (2024-05-23)
+
+
+### Features
+
+* another commit ([1db9d83](https://github.com/maroon-studio/cargo-route/commit/1db9d83e6fea359a093d15d5224d44dab5319ad8))
+* new function ([3de37d1](https://github.com/maroon-studio/cargo-route/commit/3de37d1f61b5aaae3bfbe4949e5cd59e9e699113))
+* test commit ([1d0a073](https://github.com/maroon-studio/cargo-route/commit/1d0a0733316dab9bcfbb00fedf76e4dbd3359ce8))
+
+
+### Bug Fixes
+
+* test commit ([b016908](https://github.com/maroon-studio/cargo-route/commit/b016908185e064375230006b4bd68829e44cde18))
+
 ## [1.0.11](https://github.com/maroon-studio/cargo-route/compare/v1.0.5...v1.0.11) (2024-05-23)
 
 
