@@ -1,14 +1,12 @@
-name: Release Please
+name: Generate Changelog
 
 on:
     push:
         branches:
             - main
-    pull_request:
-        types: [closed]
 
 jobs:
-    release-please:
+    generate-changelog:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
@@ -22,38 +20,15 @@ jobs:
             - name: Install release-please
               run: npm install release-please
 
-            - name: Release Please
-              run: npx release-please release-pr --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
+            - name: Generate changelog
+              run: npx release-please changelog --token=${{ secrets.GITHUB_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
 
-    create-release:
-        if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v2
-              with:
-                  node-version: "16"
-
-            - name: Install release-please
-              run: npm install release-please
-
-            - name: Create GitHub Release
-              run: npx release-please github-release --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
-
-            - name: Update README.md with latest changelog
+            - name: Commit and push updated CHANGELOG.md
               run: |
-                  VERSION=$(jq -r '.version' < package.json)
-                  CHANGELOG=$(sed -n '/## \['"$VERSION"'\]/,/^## /p' CHANGELOG.md | sed '$d')
-                  # Update the README.md file to show only the latest release changelog
-                  awk '/## Latest Release/{flag=1; print; print "\n" change; next} /## /{flag=0} !flag' change="$CHANGELOG" README.md > README.tmp && mv README.tmp README.md
-
-            - name: Commit and push updated README.md
-              run: |
-                  git add README.md
-                  git commit -m "Update README.md with latest release changelog"
+                  git config --global user.name "github-actions[bot]"
+                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                  git add CHANGELOG.md
+                  git commit -m "Update changelog"
                   git push origin main
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
