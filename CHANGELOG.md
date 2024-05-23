@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/maroon-studio/cargo-route/compare/v1.1.0...v1.2.0) (2024-05-23)
+
+
+### Features
+
+* **workflow:** add automation changelog section to readme ([65cc695](https://github.com/maroon-studio/cargo-route/commit/65cc695c351106b49389e091b6bdb6cd8ef20ab4))
+
 ## [1.1.0](https://github.com/maroon-studio/cargo-route/compare/v1.0.11...v1.1.0) (2024-05-23)
 
 
