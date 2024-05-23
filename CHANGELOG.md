@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/maroon-studio/cargo-route/compare/v1.0.4...v1.0.5) (2024-05-23)
+
+
+### Miscellaneous Chores
+
+* release 1.0.5 ([46924d4](https://github.com/maroon-studio/cargo-route/commit/46924d4bdfe49ff9d74c8b27e6fbf746593399f0))
+
 ## [1.0.4](https://github.com/maroon-studio/cargo-route/compare/v1.0.3...v1.0.4) (2024-05-22)
 
 
