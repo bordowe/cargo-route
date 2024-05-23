@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.0.11](https://github.com/maroon-studio/cargo-route/compare/v1.0.5...v1.0.11) (2024-05-23)
+
+
+### Bug Fixes
+
+* fix release-please.yml ([bdc9403](https://github.com/maroon-studio/cargo-route/commit/bdc9403f205f15dd883d1a272ab0425d00818a88))
+* fix release-please.yml ([fca8d2d](https://github.com/maroon-studio/cargo-route/commit/fca8d2d9590438ebb1ce67750f7c9c347218b74e))
+* fix release-please.yml ([ac45557](https://github.com/maroon-studio/cargo-route/commit/ac455571d4d219044d1bf07847786b5598df1b14))
+* fix release-please.yml ([75ef129](https://github.com/maroon-studio/cargo-route/commit/75ef1293831060e33d7516d357b836b749c811b6))
+
+
+### Miscellaneous Chores
+
+* release 1.0.10 ([9e0d1aa](https://github.com/maroon-studio/cargo-route/commit/9e0d1aa0561cf67a11a8426a1fa9483edf2c35d5))
+* release 1.0.11 ([a4eca56](https://github.com/maroon-studio/cargo-route/commit/a4eca56710ec969f3cbfd1c0652bda4a7fee7d88))
+* release 1.0.6 ([abd0673](https://github.com/maroon-studio/cargo-route/commit/abd067382a27bea976c66632a92f559894780e48))
+* release 1.0.7 ([07e0586](https://github.com/maroon-studio/cargo-route/commit/07e0586e4255e825df9f38104d8c65f4ff5a9d7d))
+* release 1.0.8 ([6cf8404](https://github.com/maroon-studio/cargo-route/commit/6cf8404b3b395757f2bb77a419787647e325e1bd))
+* release 1.0.9 ([7bbf5d0](https://github.com/maroon-studio/cargo-route/commit/7bbf5d09e819774409a98fa75eb6273466ed8959))
+
 ## [1.0.5](https://github.com/maroon-studio/cargo-route/compare/v1.0.4...v1.0.5) (2024-05-23)
 
 
