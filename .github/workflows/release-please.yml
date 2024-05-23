@@ -22,13 +22,3 @@ jobs:
 
             - name: Generate changelog
               run: npx release-please github-release --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
-
-            - name: Commit and push updated CHANGELOG.md
-              run: |
-                  git config --global user.name "github-actions[bot]"
-                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
-                  git add CHANGELOG.md
-                  git commit -m "Update changelog"
-                  git push origin main
-              env:
-                  GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
