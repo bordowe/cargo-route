@@ -9,7 +9,6 @@ on:
 
 jobs:
     release-please:
-        if: github.event_name == 'push'
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
@@ -44,17 +43,17 @@ jobs:
             - name: Create GitHub Release
               run: npx release-please github-release --token=${{ secrets.RELEASE_PLEASE_TOKEN }} --release-type=node --repo-url="${{ github.repository }}"
 
-            - name: Add label to release PR
-              if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+            - name: Update README.md with latest changelog
               run: |
-                  gh pr edit ${{ github.event.pull_request.number }} --add-label "release"
+                  VERSION=$(jq -r '.version' < package.json)
+                  CHANGELOG=$(sed -n '/## \['"$VERSION"'\]/,/^## /p' CHANGELOG.md | sed '$d')
+                  # Update the README.md file to show only the latest release changelog
+                  awk '/## Latest Release/{flag=1; print; print "\n" change; next} /## /{flag=0} !flag' change="$CHANGELOG" README.md > README.tmp && mv README.tmp README.md
+
+            - name: Commit and push updated README.md
+              run: |
+                  git add README.md
+                  git commit -m "Update README.md with latest release changelog"
+                  git push origin main
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    prevent-loop:
-        if: github.event.pull_request.head.repo.full_name == github.repository && contains(github.event.pull_request.labels.*.name, 'release')
-        runs-on: ubuntu-latest
-        steps:
-            - name: Exit to prevent loop
-              run: echo "Exiting to prevent loop"
-              continue-on-error: true
