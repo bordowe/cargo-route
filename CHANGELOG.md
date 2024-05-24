@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/maroon-studio/cargo-route/compare/v1.2.0...v1.2.1) (2024-05-24)
+
+
+### Bug Fixes
+
+* fix directory to .sh file in update-readme.yml ([1dc0582](https://github.com/maroon-studio/cargo-route/commit/1dc0582f7db6abae0a250853d90a7155a12977c4))
+
 ## [1.2.0](https://github.com/maroon-studio/cargo-route/compare/v1.1.0...v1.2.0) (2024-05-23)
 
 
