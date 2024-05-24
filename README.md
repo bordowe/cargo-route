@@ -10,10 +10,10 @@ The SaaS application for Cargo Route. Application that simulation the logistic m
 
 # Latest Release
 
-## [1.2.3](https://github.com/maroon-studio/cargo-route/compare/v1.2.2...v1.2.3) (2024-05-24)
+## [1.2.4](https://github.com/maroon-studio/cargo-route/compare/v1.2.3...v1.2.4) (2024-05-24)
 
 
 ### Bug Fixes
 
-* fix directory to .sh file in update-readme.yml 3 ([bdb6867](https://github.com/maroon-studio/cargo-route/commit/bdb686724e055c0d134344449b429fba6d81e2e3))
+* fix config file ([3ae2236](https://github.com/maroon-studio/cargo-route/commit/3ae22364ccb98def285c9b4e3a432f3c0e9dc0de))
 
