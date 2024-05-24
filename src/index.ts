@@ -1,5 +1,19 @@
-function greet(name: string): string {
-    return `Hello, ${name}!`
-}
+import express, { Express, Request, Response } from "express"
+import dotenv from "dotenv"
 
-console.log(greet('World'))
+dotenv.config()
+
+const app: Express = express()
+const port = process.env.PORT || 3000
+
+app.get("/", (req: Request, res: Response) => {
+    res.send("Express + Typescript Server")
+})
+
+app.get("/dashboard", (req: Request, res: Response) => {
+    res.send("Dashboard")
+})
+
+app.listen(port, () => {
+    console.log(`running on ${port}`)
+})
