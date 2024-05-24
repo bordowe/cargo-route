@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/maroon-studio/cargo-route/compare/v1.3.1...v1.3.2) (2024-05-24)
+
+
+### Bug Fixes
+
+* fix update readme in github actions ([d26921d](https://github.com/maroon-studio/cargo-route/commit/d26921da977968f560c62eb9d98e6d9efd935980))
+
 ## [1.3.1](https://github.com/maroon-studio/cargo-route/compare/v1.3.0...v1.3.1) (2024-05-24)
 
 
