@@ -25,4 +25,4 @@ jobs:
                   git commit -m "Update README with latest release notes"
                   git push origin main
               env:
-                  GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
