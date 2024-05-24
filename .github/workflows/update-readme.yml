@@ -1,4 +1,4 @@
-name: Update README with Latest Changelog
+name: update-readme
 
 on:
     push:
@@ -15,7 +15,7 @@ jobs:
             - name: Run update-readme.sh
               run: |
                   chmod +x update-readme.sh
-                  ./update-readme.sh
+                  ./.github/workflows/update-readme.sh
 
             - name: Commit and push updated README.md
               run: |
