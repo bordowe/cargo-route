@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/maroon-studio/cargo-route/compare/v1.2.3...v1.2.4) (2024-05-24)
+
+
+### Bug Fixes
+
+* fix config file ([3ae2236](https://github.com/maroon-studio/cargo-route/commit/3ae22364ccb98def285c9b4e3a432f3c0e9dc0de))
+
 ## [1.2.3](https://github.com/maroon-studio/cargo-route/compare/v1.2.2...v1.2.3) (2024-05-24)
 
 
