@@ -1,0 +1,14 @@
+{
+    "name": "@cargo-route/api",
+    "version": "1.0.0",
+    "scripts": {
+    "build": "tsc --build",
+    "start": "node dist/server.js"
+    },
+    "devDependencies": {
+    
+    },
+    "dependencies": {
+    
+    }
+}

@@ -10,10 +10,6 @@ app.get("/", (req: Request, res: Response) => {
     res.send("Express + Typescript Server")
 })
 
-app.get("/dashboard", (req: Request, res: Response) => {
-    res.send("Dashboard")
-})
-
 app.listen(port, () => {
-    console.log(`running on ${port}`)
+    console.log(`> running on ${port} port`)
 })
