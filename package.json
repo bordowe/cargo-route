@@ -1,29 +1,41 @@
 {
-  "name": "cargo-route",
-  "version": "1.0.5",
-  "description": "The SaaS application for Cargo Route. Application that simulation the logistic market and manages their fictional logistic company. 🚛",
-  "main": "./dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./dist/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maroon-studio/cargo-route.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/maroon-studio/cargo-route/issues"
-  },
-  "homepage": "https://github.com/maroon-studio/cargo-route#readme",
-  "devDependencies": {
-    "@types/express": "^4.17.21",
-    "typescript": "^5.4.5"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2"
-  }
+    "name": "cargo-route",
+    "version": "1.0.5",
+    "description": "The SaaS application for Cargo Route. Application that simulation the logistic market and manages their fictional logistic company. 🚛",
+    "main": "./dist/index.js",
+    "workspaces": [
+        "packages/api",
+        "packages/app"
+    ],
+    "scripts": {
+        "build:api": "cd packages/api && tsc --build",
+        "build:app": "cd packages/app && tsc --build",
+        "build": "npm run build:api && npm run build:app",
+        "start:api": "npx ts-node ./packages/api/server.ts",
+        "start:app": "npx ts-node ./packages/app/index.ts",
+        "start": "node processManager.js",
+        "test:api": "",
+        "test:app": "",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/maroon-studio/cargo-route.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/maroon-studio/cargo-route/issues"
+    },
+    "homepage": "https://github.com/maroon-studio/cargo-route#readme",
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "concurrently": "^8.2.2",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2"
+    }
 }
